@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GameCard from "../../components/GameCard.astro";
+
+// To add a new game: append an entry here and create the corresponding page + component.
+const games = [
+  {
+    id: "tictactoe",
+    title: "Tic-Tac-Toe",
+    description: "Classic 3×3 strategy. Challenge a friend in real-time — first to three in a row wins.",
+    href: "/games/tictactoe",
+    icon: "⚔️",
+    badge: "2 players",
+  },
+  // Add future games here, e.g.:
+  // { id: "chess", title: "Chess", ... }
+];
+---
+
+<Layout title="Games" description="Pick a game and play with friends online.">
+  <div class="mb-10">
+    <h1 class="text-3xl font-bold text-white">Game Library</h1>
+    <p class="mt-2 text-gray-400">Choose a game and share the room code with a friend.</p>
+  </div>
+
+  <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" role="list">
+    {games.map((game) => (
+      <li>
+        <GameCard
+          title={game.title}
+          description={game.description}
+          href={game.href}
+          icon={game.icon}
+          badge={game.badge}
+        />
+      </li>
+    ))}
+  </ul>
+</Layout>

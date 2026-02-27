@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import TicTacToeShell from "../../components/TicTacToeShell";
+
+// PUBLIC_WS_URL is injected at build time from the .env file.
+// In production, set this env var to your deployed WS server URL.
+const wsUrl = import.meta.env.PUBLIC_WS_URL ?? "ws://localhost:8080";
+---
+
+<Layout
+  title="Tic-Tac-Toe"
+  description="Play Tic-Tac-Toe — solo against AI, locally with a friend, or online."
+>
+  <div class="mb-8">
+    <a
+      href="/games"
+      class="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-white transition-colors"
+    >
+      ← Back to games
+    </a>
+    <h1 class="mt-3 text-3xl font-bold text-white">Tic-Tac-Toe</h1>
+    <p class="mt-1 text-gray-400">Solo · Pass &amp; Play · Online multiplayer</p>
+  </div>
+
+  <!--
+    TicTacToeShell is the island boundary.
+    It composes GameShell (WebSocket logic) + TicTacToeGame (board UI) entirely
+    on the client side, so no render-prop function crosses the hydration boundary.
+  -->
+  <TicTacToeShell wsUrl={wsUrl} client:load />
+</Layout>

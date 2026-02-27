@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm build:ws"
+
+[deploy]
+startCommand = "node apps/ws/dist/index.js"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3

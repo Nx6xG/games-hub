@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Play multiplayer games online." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} · Games Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="h-full bg-gray-950 text-gray-100 font-sans antialiased">
+    <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-10">
+      <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+        <a href="/games" class="text-lg font-bold tracking-tight hover:text-white transition-colors">
+          🎮 Games Hub
+        </a>
+        <nav class="flex gap-6 text-sm text-gray-400">
+          <a href="/games" class="hover:text-white transition-colors">Games</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gray-800 mt-20 py-6 text-center text-xs text-gray-600">
+      Games Hub — open source multiplayer
+    </footer>
+  </body>
+</html>

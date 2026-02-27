@@ -1,0 +1,18 @@
+{
+  "name": "games-hub",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter shared build && concurrently --kill-others -n shared,ws,web -c blue,cyan,magenta \"pnpm --filter shared dev\" \"pnpm --filter ws dev\" \"pnpm --filter web dev\"",
+    "dev:web": "pnpm --filter web dev",
+    "dev:ws": "pnpm --filter ws dev",
+    "build:shared": "pnpm --filter shared build",
+    "build:ws": "pnpm --filter shared build && pnpm --filter ws build",
+    "build:web": "pnpm --filter shared build && pnpm --filter web build",
+    "build:all": "pnpm --filter shared build && pnpm --filter ws build && pnpm --filter web build",
+    "build": "pnpm build:all",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

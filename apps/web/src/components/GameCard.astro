@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  badge?: string;
+  /** Emoji or icon character */
+  icon: string;
+}
+
+const { title, description, href, badge, icon } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative flex flex-col gap-4 rounded-2xl border border-gray-800 bg-gray-900 p-6
+         hover:border-indigo-500/60 hover:bg-gray-800/80 transition-all duration-200 shadow-lg"
+>
+  {badge && (
+    <span class="absolute top-4 right-4 text-xs font-medium bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full">
+      {badge}
+    </span>
+  )}
+
+  <div class="text-4xl select-none">{icon}</div>
+
+  <div>
+    <h2 class="text-lg font-semibold text-white group-hover:text-indigo-300 transition-colors">
+      {title}
+    </h2>
+    <p class="mt-1 text-sm text-gray-400 leading-relaxed">{description}</p>
+  </div>
+
+  <span class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 group-hover:text-indigo-300">
+    Play now
+    <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </span>
+</a>
