@@ -1,5 +1,12 @@
 {
   "buildCommand": "pnpm build:web",
   "outputDirectory": "dist",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/games",
+      "permanent": true
+    }
+  ]
 }
