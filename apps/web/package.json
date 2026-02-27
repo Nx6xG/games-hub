@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "pnpm --filter @games-hub/shared build",
     "build": "astro build",
-    "build:web": "astro build",
-    "vercel-build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check"
   },

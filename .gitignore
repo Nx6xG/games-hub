@@ -12,5 +12,8 @@ dist
 .env
 **/.env
 
+# vercel
+.vercel
+
 # mac
 .DS_Store
