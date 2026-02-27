@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:web": "astro build",
+    "vercel-build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check"
   },
